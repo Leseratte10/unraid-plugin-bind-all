@@ -4,6 +4,10 @@
 # bergware - updated for Unraid, June 2023
 # Leseratte10 - updated to remove new IP code and make IPv6 work again...
 
+WIREGUARD="/etc/wireguard"
+NETWORK_INI="/var/local/emhttp/network.ini"
+NETWORK_EXTRA="/boot/config/network-extra.cfg"
+
 
 IPv() {
   t=${1//[^:]}
