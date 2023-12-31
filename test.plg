@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE PLUGIN [
+<!ENTITY name "Unraid patch - Bind to all IPs">
+<!ENTITY author "Leseratte10">
+<!ENTITY version "2023.12.31">
+<!ENTITY github "Leseratte10/unraid-plugin-bind-all">
+<!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/test.plg">
+]>
+<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
+
+<CHANGES>
+###2023.12.31
+- Initial Release
+</CHANGES>
+
+<FILE Run="/bin/bash">
+<INLINE>
+
+echo "Test ..."
+sleep 10s
+echo "done"
+</INLINE>
+  </FILE>
+  
+  <!--
+The 'remove' script.
+-->
+  <FILE Run="/bin/bash" Method="remove">
+    <INLINE>
+		echo "Uninstalled!"
+    sleep 10
+</INLINE>
+  </FILE>
+</PLUGIN>
