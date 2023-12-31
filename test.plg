@@ -1,9 +1,10 @@
 <?xml version="1.0" standalone="yes"?>
 <!DOCTYPE PLUGIN [
-<!ENTITY name "Unraid patch - Bind to all IPs">
+<!ENTITY name "leseratte.patch.listen-on-all-ips">
 <!ENTITY author "Leseratte10">
 <!ENTITY version "2023.12.31">
 <!ENTITY github "Leseratte10/unraid-plugin-bind-all">
+<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/test.plg">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
@@ -12,6 +13,17 @@
 ###2023.12.31
 - Initial Release
 </CHANGES>
+
+<FILE Name="&emhttp;/README.md">
+<INLINE>
+**Name**
+  
+Contents A
+Contents B
+
+Contents C
+</INLINE>
+</FILE>
 
 <FILE Run="/bin/bash">
 <INLINE>
