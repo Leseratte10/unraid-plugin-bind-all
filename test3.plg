@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "leseratte.patch.listen-on-all-ips">
 <!ENTITY author "Leseratte10">
-<!ENTITY version "2023.12.31a">
+<!ENTITY version "2023.12.31b">
 <!ENTITY github "Leseratte10/unraid-plugin-bind-all">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/test3.plg">
 ]>
-<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
+<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.6" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
 
 <CHANGES>
 ###2023.12.31
@@ -25,6 +25,10 @@ Contents C
 </INLINE>
 </FILE>
 
+<FILE Name="/etc/rc.d/rc.library.source.leseratte">
+<URL>https://raw.githubusercontent.com/&github;/master/script_6.12.6.sh</URL>
+</FILE>
+
 <FILE Run="/bin/bash">
 <INLINE>
 
@@ -39,6 +43,7 @@ The 'remove' script.
 -->
   <FILE Run="/bin/bash" Method="remove">
     <INLINE>
+    rm /etc/rc.d/rc.library.source.leseratte || /bin/true
 		echo "Uninstalled!"
     sleep 10
 </INLINE>
