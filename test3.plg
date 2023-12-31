@@ -5,7 +5,7 @@
 <!ENTITY version "2023.12.31a">
 <!ENTITY github "Leseratte10/unraid-plugin-bind-all">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
-<!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/test.plg">
+<!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/test3.plg">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
 
