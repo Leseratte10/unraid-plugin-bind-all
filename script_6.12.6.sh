@@ -2,7 +2,7 @@
 # Used by nfsd, ntpd, rpc, samba, nginx, sshd, avahidaemon, show_interfaces
 #
 # bergware - updated for Unraid, June 2023
-# Leseratte10 - updated to remove new IP code and make IPv6 work again...
+# Leseratte10 - updated to remove new IP code and make IPv6 work again, January 2024
 
 WIREGUARD="/etc/wireguard"
 NETWORK_INI="/var/local/emhttp/network.ini"
@@ -46,19 +46,6 @@ this() {
 
 scan() {
   grep -Pom1 "^$1=\"?\K[^\"]+" $2
-}
-
-good() {
-  data=;
-  for i in ${bind[@]}; do
-    [[ $i == $1 || ${1:0:4} == fe80 ]] && data=$1
-  done
-  if [[ -n $2 ]]; then
-    for i in ${nets[@]}; do
-      [[ $i == $2 || ${2:0:4} == fe80 ]] && data=$2
-    done
-  fi
-  echo $data
 }
 
 max6() {

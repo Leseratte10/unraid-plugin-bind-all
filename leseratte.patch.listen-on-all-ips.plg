@@ -2,44 +2,37 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "leseratte.patch.listen-on-all-ips">
 <!ENTITY author "Leseratte10">
-<!ENTITY version "2023.12.31f">
-<!ENTITY github "Leseratte10/unraid-plugin-bind-all">
-<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
+<!ENTITY version "2024.01.01">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/leseratte.patch.listen-on-all-ips.plg">
 ]>
-<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.6" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
+<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
 
 <CHANGES>
-###2023.12.31f
-- Initial Release
+###2024.01.01
+- Initial Release - only tested on 6.12.6 so far.
 </CHANGES>
 
-<FILE Run="/bin/bash">
-<INLINE>
-rm /usr/local/emhttp/plugins/leseratte.patch.listen-on-all-ips/README.md || /bin/true
-rm /etc/rc.d/rc.library.source.leseratte || /bin/true
-</INLINE>
-</FILE>
-
-<FILE Name="&emhttp;/README.md">
+<FILE Name="/tmp/leseratte.patch.listen-on-all-ips.readme.md">
 <INLINE>
 **Bind to all IPs**
   
-Since UnRaid 6.12.X, all services only listen on particular IPs, not [::]/0.0.0.0 anymore. This causes issues in some configurations, so this plugin brings back the old behaviour.
+Since Unraid 6.12.X, all services only listen on particular IPs, not [::]/0.0.0.0 anymore. This causes issues in some configurations, so this plugin brings back the old behaviour.
+
+Click [here](https://github.com/Leseratte10/unraid-plugin-bind-all) for the source or [here](https://github.com/unraid/webgui/issues/1567) for the bug report.
 </INLINE>
 </FILE>
 
-<FILE Name="/etc/rc.d/rc.library.source.leseratte">
-<URL>https://raw.githubusercontent.com/&github;/master/script_6.12.6.sh</URL>
+<FILE Name="/tmp/leseratte.patch.listen-on-all-ips.sh">
+<URL>https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/script_6.12.6.sh</URL>
 </FILE>
 
 <FILE Run="/bin/bash">
 <INLINE>
 
-echo "Installing ..."
-mv /etc/rc.d/rc.library.source /etc/rc.d/rc.library.source.backup
-mv /etc/rc.d/rc.library.source.leseratte /etc/rc.d/rc.library.source
-echo "Done"
+echo -n "Installing ... "
+mv /tmp/leseratte.patch.listen-on-all-ips.readme.md /usr/local/emhttp/plugins/leseratte.patch.listen-on-all-ips/README.md
+mv /tmp/leseratte.patch.listen-on-all-ips.sh /etc/rc.d/rc.library.source
+echo "done"
 </INLINE>
 </FILE>
   
@@ -48,9 +41,7 @@ The 'remove' script.
 -->
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
-rm /etc/rc.d/rc.library.source || /bin/true
-mv /etc/rc.d/rc.library.source.backup /etc/rc.d/rc.library.source
-echo "Uninstalled!"
+echo "Plugin uninstalled. Please reboot Unraid for the changes to become effective."
 </INLINE>
 </FILE>
 </PLUGIN>
