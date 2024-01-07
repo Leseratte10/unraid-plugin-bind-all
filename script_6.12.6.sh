@@ -138,6 +138,12 @@ check() {
   bind+=("::")
   bind+=("0.0.0.0")
 
+  # SMB handles this on its own
+  if [[ "smb" =~ $CALLER ]]; then
+    unset bind
+    return 0
+  fi
+
   # add loopback interface
   if [[ "smb nfs" =~ $CALLER ]]; then
     [[ $ipv4 == yes ]] && bind+=(127.0.0.1)

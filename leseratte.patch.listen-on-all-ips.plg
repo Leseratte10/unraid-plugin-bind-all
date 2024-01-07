@@ -2,12 +2,15 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "leseratte.patch.listen-on-all-ips">
 <!ENTITY author "Leseratte10">
-<!ENTITY version "2024.01.01a">
+<!ENTITY version "2024.01.07">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/Leseratte10/unraid-plugin-bind-all/master/leseratte.patch.listen-on-all-ips.plg">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" icon="bug" min="6.12.0" max="6.12.6" support="https://github.com/unraid/webgui/issues/1567">
 
 <CHANGES>
+###2024.01.07
+- Fix SMB not working properly.
+
 ###2024.01.01
 - Initial Release - only tested on 6.12.6 so far.
 </CHANGES>
